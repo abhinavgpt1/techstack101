@@ -1,1 +1,1 @@
-# stack101
+Contains tech stacks basic implementation with some documentation (unmaintained in future)
