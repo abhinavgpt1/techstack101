@@ -27,7 +27,7 @@ public class AllMsgReceiver {
         channel.exchangeDeclare(EXCHANGE_NAME, "topic", durability); // topic type exchange
         channel.queueDeclare(LITERALLY_ALL_LOGS_QUEUE, durability, false, false, null);
         channel.queueBind(LITERALLY_ALL_LOGS_QUEUE, EXCHANGE_NAME, "#"); // receives all msgs literally
-        // routingKey as *.* means receives all msgs following contract
+        // routingKey as *.* means receives all msgs following our contract (<xyz>.<abc>)
         // having multiple routingKey valid for a msg doesn't allow the msg to be sent that many times.
 
         System.out.println("[*] Waiting for msgs in " + LITERALLY_ALL_LOGS_QUEUE + "...");

@@ -26,7 +26,9 @@ public class ErrorLogsReceiver {
         channel.exchangeDeclare(EXCHANGE_NAME, "topic", durability); // topic type exchange
         channel.queueDeclare(ERROR_LOGS_QUEUE, durability, false, false, null);
         channel.queueBind(ERROR_LOGS_QUEUE, EXCHANGE_NAME, "*.error"); // receiving error logs which follow contract
-        // #.error would include any msg which has "error" as suffix in the routingKey eg. 93urdoejd.error, api.sdkfl.error, etc.
+        // #.error would include any msg which has "error" as suffix in the routingKey
+        // eg. error, .error, api.sdkfl.error, etc.
+        // here error will be valid since #.error means zero or more words behind error
 
         System.out.println("[*] Waiting for msgs in " + ERROR_LOGS_QUEUE + "...");
         // deliverCallBack

@@ -19,6 +19,7 @@ public class ReceiveLogs {
         String queueName = channel.queueDeclare().getQueue(); //creates random named queue - which is non-durable, exclusive and autodeletes once all consumers are done consuming it
         channel.queueBind(queueName, EXCHANGE_NAME, ""); //no need of routingKey in case of fanout exchange
         // NOTE: The messages will be lost if no queue is bound to the exchange yet
+        // Although bindingKey is ignored if mentioned, but it can't be NULL ever
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 

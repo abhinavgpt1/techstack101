@@ -29,6 +29,9 @@ public class APILogsReceiver {
         // api.# would include any msg which has "api" as prefix in the routingKey eg. api.93urdoejd, api.sdkfl.sjkdf, etc.
         channel.queueBind(API_LOGS_QUEUE, EXCHANGE_NAME, "directthistoapiqueue"); // receiving direct exchange like msg
 
+        // channel.queueBind(API_LOGS_QUEUE, EXCHANGE_NAME, "api*"); // this won't work in topic exchange. The pattern must have '.'
+        // RULE: routing key should have zero or more words delimited by dots
+
         System.out.println("[*] Waiting for msgs in " + API_LOGS_QUEUE + "...");
         // deliverCallBack
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {

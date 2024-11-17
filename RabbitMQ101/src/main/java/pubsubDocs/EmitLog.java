@@ -19,7 +19,8 @@ public class EmitLog {
       String message = argv.length < 1 ? "info: Hello World!" :
               String.join(" ", argv);
 
-      // putting up routingKey/queueName below will be ignored since the exchange is fanout
+      // putting up bindingKey/queueName below will be ignored since the exchange is fanout
+      // Although bindingKey is ignored if mentioned, but it can't be NULL ever
       // channel.queueBind(...)
 
       // NOTE: The messages will be lost if no queue is bound to the exchange yet
