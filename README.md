@@ -1,1 +1,2 @@
-Contains tech stacks basic implementation with some documentation (unmaintained in future)
+## Aim of repository
+Contain (and not maintain) basic implementation of tech stack with some documentation to refer in future
